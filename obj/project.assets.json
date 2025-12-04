@@ -4022,11 +4022,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "F:\\Test\\ProjectTest\\Library\\Library\\Library.csproj",
+      "projectUniqueName": "F:\\Projects\\library\\Library\\Library.csproj",
       "projectName": "Library",
-      "projectPath": "F:\\Test\\ProjectTest\\Library\\Library\\Library.csproj",
+      "projectPath": "F:\\Projects\\library\\Library\\Library.csproj",
       "packagesPath": "C:\\Users\\NoteBook\\.nuget\\packages\\",
-      "outputPath": "F:\\Test\\ProjectTest\\Library\\Library\\obj\\",
+      "outputPath": "F:\\Projects\\library\\Library\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

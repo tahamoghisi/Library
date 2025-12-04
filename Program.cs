@@ -9,6 +9,11 @@ builder.Services.AddSession();
 builder.Services.AddDbContext<LibraryDBContext>(option =>
     option.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
+
+
+
+
+
 builder.Services.AddScoped<IBookRepo,BookRepo>();
 builder.Services.AddScoped<IUserRepo, UserRepo>();
 builder.Services.AddScoped<ICategoryRepo, CategoryRepo>();
