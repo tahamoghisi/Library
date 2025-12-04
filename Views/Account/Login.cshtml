@@ -1,0 +1,35 @@
+﻿@using Library.Models.ViewModels
+@model LoginViewModel
+<div class="row">
+    <div class="col-12" style="text-align:center">
+        <p style="color:red">
+            @TempData["Message"]
+        </p>
+    </div>
+</div>
+<div class="row">
+    <div class="col-12" style="text-align:center">
+        <div>
+            <h1>ورود به کتابخانه</h1>
+			<form asp-action="Login" asp-controller="Account" method="post" enctype="multipart/form-data">
+				<p>
+					<input asp-for="@Model.UserName" type="text" value="" placeholder="نام کاربری" required />
+				</p>
+				<p>
+					<input asp-for="@Model.Password" type="password" value="" placeholder="گذرواژه" required />
+				</p>
+				<p>
+					<label>
+						<input type="checkbox" name="remember_me" id="remember_me" />
+						مرا به خاطر بسپار
+					</label>
+				</p>
+				<p>
+					<button type="submit" class="btn btn-primary mb-3">ورود</button>
+				</p>
+				<hr />
+            </form>
+        </div>
+    </div>
+</div>
+

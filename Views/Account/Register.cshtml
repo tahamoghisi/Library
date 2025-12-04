@@ -1,0 +1,47 @@
+﻿@using Library.Models.ViewModels
+@model RegisterViewModel
+
+<div class="row">
+    <div class="col-12" style="text-align:center">
+        <p style="color:red">
+            @TempData["Message"]
+        </p>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-12" style="text-align:center">
+        <div>
+            <h1>ثبت نام کتابخانه</h1>
+
+            <form method="post" enctype="multipart/form-data"
+                  asp-action="Register" asp-controller="Account">
+                <p>
+                    <input asp-for="@Model.UserName" type="text" value="" placeholder="نام کاربری" required />
+                </p>
+                <p>
+                    <input asp-for="@Model.Password" type="password" value="" placeholder="گذرواژه" required />
+                </p>
+                <p>
+                    <input asp-for="@Model.Address" type="text" value="" placeholder="آدرس" required />
+                </p>
+                <p>
+                    <input asp-for="@Model.Email" type="text" value="" placeholder="ایمیل(اختیاری)" />
+                </p>
+                <p>
+                    <input asp-for="@Model.Phone" type="text" value="" placeholder="شماره تلفن" required />
+                </p>
+                <p>
+                    <label>
+                        <input type="checkbox" name="remember_me" id="remember_me" />
+                        مرا به خاطر بسپار
+                    </label>
+                </p>
+                <p>
+                    <button type="submit" class="btn btn-primary mb-3">ثبت نام</button>
+                </p>
+                <hr />
+            </form>
+        </div>
+    </div>
+</div>

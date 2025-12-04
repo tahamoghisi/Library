@@ -1,0 +1,25 @@
+﻿@using Library.Models.ViewModels
+@model UpdateUserViewModel
+<h2>ویرایش کاربر</h2>
+<form method="post" asp-action="UpdateUser" asp-controller="User">
+    <input type="hidden" asp-for="Id" />
+    <label>نام</label>
+    <br />
+    <input asp-for="UserName" />
+    <br />
+    <label>توضیحات</label>
+    <br />
+    <input asp-for="Address" />
+    <br />
+    <label>نام نویسنده</label>
+    <br />
+    <input asp-for="Email" />
+    <br />
+    <label>تعداد صفحات</label>
+    <br />
+    <input asp-for="Phone" />
+    <br />
+    <button type="submit" class="btn btn-primary mt-3">ثبت تغییرات</button>
+</form>
+<a class="btn btn-success btn-lg" asp-action="Index" asp-controller="User">برگشت به صفحه قبل</a>
+

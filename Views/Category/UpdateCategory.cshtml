@@ -1,0 +1,17 @@
+﻿@using Library.Models.ViewModels
+@model UpdateCategoryViewModel
+<div class="col-12" style="text-align:center">
+    <p style="color:red">
+        @TempData["Message"]
+    </p>
+</div>
+<h2>ویرایش دسته بندی</h2>
+<form method="post" asp-action="UpdateCategory" asp-controller="Category">
+    <input type="hidden" asp-for="Id" />
+    <label>نام</label>
+    <br />
+    <input asp-for="Name" />
+    <br />
+    <button type="submit" class="btn btn-primary mt-3">ثبت تغییرات</button>
+</form>
+<a class="btn btn-success btn-lg" asp-action="Index" asp-controller="Category">برگشت به صفحه قبل</a>

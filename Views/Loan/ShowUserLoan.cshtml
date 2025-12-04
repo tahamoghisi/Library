@@ -1,0 +1,50 @@
+﻿@model List<Loan>
+<h3>کتاب های امانت گرفته ی شما</h3>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>نام کتاب</th>
+            <th>تاریخ دریافت</th>
+            <th>مهلت برگشت</th>
+            <th>وضعیت</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Book.Name</td>
+                <td>@item.LoanDate</td>
+                <td>@item.DueTime</td>
+                <td>
+                    @if (item.ReturnDate == null)
+                    {
+                        <span class="text-danger">در حال امانت</span>
+                    }
+                    else
+                    {
+                        <span class="text-danger">برگشت داده شده</span>
+                    }
+                </td>
+                <td>
+                    @if(item.ReturnDate == null)
+                    {
+                        <a asp-action="ReturnBook"
+                        asp-controller="Loan"
+                        asp-route-bookId="@item.BookId">برگشت کتاب</a>
+                    }
+                </td>
+            </tr>
+        }
+    </tbody>
+    <tfoot>
+        <tr>
+            <td>
+                <div class="text-end mt-3">
+                    <a href="@Url.Action("ShowBookList","Book")" class="btn btn-success btn-lg">بازگشت به لیست کتاب ها </a>
+                </div>
+            </td>
+        </tr>
+    </tfoot>
+</table>

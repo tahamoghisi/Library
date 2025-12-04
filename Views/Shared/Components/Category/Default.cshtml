@@ -1,0 +1,10 @@
+﻿@using Library.Models.ViewModels
+@model List<CategoryViewModel>
+
+@foreach(var item in Model)
+{
+	<a style="color:@(item.CategoryId.ToString() == ViewBag.CurrentCategory?"Red":"Greeen")" asp-action="ShowBookList" asp-controller="Book"
+	   asp-route-categoryId="@item.CategoryId" asp-route-page="1">@item.CategoryName</a>
+	<span>(@item.BookCount)</span>
+	<br />
+}

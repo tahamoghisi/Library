@@ -1,0 +1,42 @@
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 60px;
+}
+.empty-content{
+    text-align:center;
+    color:red;
+    font-size:18px;
+}
+table,th,td{
+    border: 1px,solid,black;
+    border-collapse:collapse;
+}
+.table-style{
+    width : 40%;
+}
+.basket-row{
+    place-content: center;
+}
+.loan-success{
+    text-align:center;
+    color:green;
+    font-size:18px;
+}

@@ -1,0 +1,81 @@
+﻿@model List<Book>
+<h2>مدیریت کتاب ها</h2>
+<div class="row">
+    <div class="col-12" style="text-align:center">
+        <p style="color:red">
+            @TempData["Message"]
+        </p>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-3"></div>
+    <table class="table table-striped col-md-6" style="text-align:center">
+        <thead>
+            <tr>
+                <th>نام کتاب</th>
+                <th>توضیحات</th>
+                <th>نام نویسنده</th>
+                <th>تعداد صفحات</th>
+                <th>دسته بندی</th>
+                <th>ویرایش</th>
+                <th>حذف</th>
+            </tr>
+        </thead>
+        <tbody>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.Name</td>
+                    <td>@item.Description</td>
+                    <td>@item.AuthorName</td>
+                    <td>@item.PageCount</td>
+                    <td>@item.Category.Name</td>
+                    <td>
+                        <a asp-action="UpdateBook" asp-controller="Book"
+                           asp-route-bookId="@item.Id" class="btn btn-danger">آپدیت</a>
+                    </td>
+                    <td>
+                        <a data-bs-toggle="modal"
+                           data-bs-target="#deleteModal-@item.Id"
+                           class="btn btn-danger">حذف</a>
+                    </td>
+                    <div class="modal" tabindex="-1" id="deleteModal-@item.Id">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title">حذف کتاب</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <p>آیا میخواهید این کتاب را حذف کنید؟</p>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">خیر</button>
+                                    <a asp-action="DeleteBook"
+                                       asp-controller="Book"
+                                       asp-route-bookId="@item.Id"
+                                       class="btn btn-danger">
+                                        حذف
+                                    </a>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </tr>
+            }
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="2">
+                    <a class="btn btn-success btn-lg" asp-action="CreateBook" asp-controller="Book">ایجاد کتاب جدید</a>
+                </td>
+                <td colspan="2">
+                    <a class="btn btn-success btn-lg" asp-action="Index" asp-controller="Admin">برگشت به صفحه قبل</a>
+                </td>
+            </tr>
+        </tfoot>
+    </table>
+    <div class="col-md-3"></div>
+</div>

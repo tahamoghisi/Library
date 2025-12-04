@@ -1,0 +1,37 @@
+﻿@using Library.Models.ViewModels
+@model BookViewModel
+<html dir="rtl">
+<body>
+    @await Component.InvokeAsync("Category")
+    <br />
+    <div class="row">
+        <div class="col-md-4">
+            <select id="statusSelect" name="status" class="form-select" onchange="showList()">
+                <option value="2">همه</option>
+                <option value="0">موجود</option>
+                <option value="1">امانت داده شده</option>
+            </select>
+            @* <button type="submit" class="btn btn-primary">فیلتر</button> *@
+        </div>
+    </div>
+
+    @foreach (var item in Model.Books)
+    {
+        <text>نام کتاب:</text>
+        <p>@item.Name</p>
+        <text>نویسنده:</text>
+        <p>@item.AuthorName</p>
+        <a asp-action="BookDetail" asp-controller="Book"
+           asp-route-bookId="@item.Id">مشاهده جزییات کتاب</a>
+        <br />
+    }
+    <div page-model="@Model.PagingInformation" page-action="ShowBookList"></div>
+</body>
+</html>
+<script>
+    function showList(){
+        var status = document.getElementById("statusSelect").value;
+        window.location.href ='/book/ShowBookList?status='+status;
+
+    };
+</script>

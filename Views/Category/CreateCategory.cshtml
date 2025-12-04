@@ -1,0 +1,16 @@
+﻿@using Library.Models.ViewModels
+@model CreateCategoryViewModel
+<h2>ایجاد دسته بندی جدید</h2>
+<div class="row">
+    <div class="col-12" style="text-align:center">
+        <p style="color:red">
+            @TempData["Message"]
+        </p>
+    </div>
+</div>
+<form method="post" asp-action="CreateCategory" asp-controller="Category">
+    <input asp-for="Name" placeholder="نام کتاب" required/>
+    <br />
+    <button type="submit" class="btn btn-primary mt-3">ثبت دسته بندی</button>
+</form>
+<a class="btn btn-success btn-lg" asp-action="Index" asp-controller="category">برگشت به صفحه قبل</a>

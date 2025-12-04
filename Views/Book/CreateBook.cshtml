@@ -1,0 +1,31 @@
+﻿@using Library.Models.ViewModels
+@model CreateBookViewModel
+<h2>ایجاد کتاب جدید</h2>
+<div class="row">
+    <div class="col-12" style="text-align:center">
+        <p style="color:red">
+            @TempData["Message"]
+        </p>
+    </div>
+</div>
+<form method="post" asp-action="CreateBook" asp-controller="Book">
+    <input asp-for="Name" placeholder="نام کتاب" />
+    <br />
+    <input asp-for="Description" placeholder="توضیحات" required/>
+    <br />
+    <input asp-for="AuthorName" placeholder="نام نویسنده" required/>
+    <br />
+    <input asp-for="PageCount" placeholder="تعداد صفحه" required />
+    <br />
+    <label>وضعیت</label>
+    <br />
+    <select asp-for="Status" asp-items="Html.GetEnumSelectList<Status>()" required></select>
+    <br />
+    <label>دسته بندی</label>
+    <br />
+    <select asp-for="CategoryId" asp-items="@(new SelectList(Model.Categories,"Id","Name"))" required>
+    </select>
+    <button type="submit" class="btn btn-primary mt-3">ثبت کتاب</button>
+</form>
+<a class="btn btn-success btn-lg" asp-action="Index" asp-controller="Book">برگشت به صفحه قبل</a>
+

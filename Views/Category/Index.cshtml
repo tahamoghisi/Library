@@ -1,0 +1,49 @@
+﻿@using Library.Models.ViewModels
+@model List<CategoryViewModel>
+<h2>مدیریت دسته بندی ها</h2>
+<div class="col-12" style="text-align:center">
+    <p style="color:red">
+        @TempData["Message"]
+    </p>
+</div>
+<div class="row">
+    <div class="col-3"></div>
+    <table class="table table-striped col-md-6" style="text-align:center">
+        <thead>
+            <tr>
+                <th>نام دسته بندی</th>
+                <th>تعداد کتاب های دسته بندی</th>
+                <th>ویرایش</th>
+                <th>حذف</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.CategoryName</td>
+                    <td>@item.BookCount</td>
+                    <td>
+                        <a asp-action="UpdateCategory" asp-controller="Category"
+                           asp-route-categoryId="@item.CategoryId" class="btn btn-danger">آپدیت</a>
+                    </td>
+                    <td>
+                        <a asp-action="DeleteCategory" asp-controller="Category"
+                           asp-route-categoryId="@item.CategoryId" class="btn btn-danger">حذف</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="2">
+                    <a class="btn btn-success btn-lg" asp-action="CreateCategory" asp-controller="Category">ایجاد دسته بندی جدید</a>
+                </td>
+                <td colspan="2">
+                    <a class="btn btn-success btn-lg" asp-action="Index" asp-controller="Admin">برگشت به صفحه قبل</a>
+                </td>
+            </tr>
+        </tfoot>
+    </table>
+    <div class="col-3"></div>
+</div>

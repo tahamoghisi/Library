@@ -1,0 +1,41 @@
+﻿@model List<User>
+<h2>مدیریت کاربر ها</h2>
+<div class="row">
+    <div class="col-md-3"></div>
+    <table class="table table-striped col-md-6" style="text-align:center">
+        <thead>
+            <tr>
+                <th>نام کاربر</th>
+                <th>ایمیل</th>
+                <th>آدرس</th>
+                <th>َشماره تلفن</th>
+                <th>ویرایش</th>
+            </tr>
+        </thead>
+        <tbody>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.UserName</td>
+                    <td>@item.Email</td>
+                    <td>@item.Address</td>
+                    <td>@item.Phone</td>
+                    <td>
+                        <a asp-action="UpdateUser" asp-controller="User"
+                           asp-route-userId="@item.Id" class="btn btn-danger">آپدیت</a>
+                    </td>    
+                </tr>
+            }
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="2">
+                    <a class="btn btn-success btn-lg" asp-action="Index" asp-controller="Admin">برگشت به صفحه قبل</a>
+                </td>
+            </tr>
+        </tfoot>
+    </table>
+    <div class="col-md-3"></div>
+</div>
+

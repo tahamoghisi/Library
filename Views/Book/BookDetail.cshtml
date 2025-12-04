@@ -1,0 +1,19 @@
+﻿@model Book
+<h2>جزییات کتاب</h2>
+<h6>نام کتاب:@Model.Name</h6>
+<p>تعداد صفحه:@Model.PageCount</p>
+<p>@Model.Description</p>
+<p>نام نویسنده:@Model.AuthorName</p>
+<p>دسته بندی:@Model.Category.Name</p>
+@if (Model.Status == Status.available)
+{
+    <p style="color:green">در دسترس</p>
+}
+else
+{
+    <p style="color:red">امانت داده شده</p>
+}
+@if(Model.Status == Status.available)
+{
+    <a asp-action="AddToBasket" asp-controller="Loan" asp-route-bookId="@Model.Id">افزودن به سبد</a>
+}

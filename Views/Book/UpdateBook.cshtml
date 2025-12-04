@@ -1,0 +1,43 @@
+﻿@using Library.Models.ViewModels
+@model UpdateBookViewModel
+
+<div class="row">
+    <div class="col-12" style="text-align:center">
+        <div>
+            <h2>ویرایش کتاب</h2>
+            <form method="post" asp-action="UpdateBook" asp-controller="Book">
+                <input type="hidden" asp-for="Id" />
+                <label>نام</label>
+                <br />
+                <input asp-for="Name" />
+                <br />
+                <label>توضیحات</label>
+                <br />
+                <input asp-for="Description" />
+                <br />
+                <label>نام نویسنده</label>
+                <br />
+                <input asp-for="AuthorName" />
+                <br />
+                <label>تعداد صفحات</label>
+                <br />
+                <input asp-for="PageCount" />
+                <br />
+                <label>وضعیت</label>
+                <br />
+                <select asp-for="Status" asp-items="Html.GetEnumSelectList<Status>()"></select>
+                <br />
+                <label>دسته بندی</label>
+                <br />
+                <select asp-for="CategoryId" asp-items="@(new SelectList(Model.Categories,"Id","Name"))">
+                </select>
+                @* <select> *@
+                @*     <option value=""></option> *@
+                @* </select> *@
+                @* <br /> *@
+                <button type="submit" class="btn btn-primary mt-3">ثبت تغییرات</button>
+            </form>
+            <a class="btn btn-success btn-lg" asp-action="Index" asp-controller="Book">برگشت به صفحه قبل</a>
+        </div>
+    </div>
+</div>
